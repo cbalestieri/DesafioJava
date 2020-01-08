@@ -1,5 +1,8 @@
 package br.com.desafioJava;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Curso {
     //Atributos
     private String nomeCurso;
