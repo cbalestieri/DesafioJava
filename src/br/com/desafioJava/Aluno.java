@@ -1,43 +1,38 @@
 package br.com.desafioJava;
 
 public class Aluno {
+    private String nome;
+    private String sobrenome;
+    private Integer codigoAluno;
 
-    //Atributos
-    private String nomeAluno;
-    private String sobrenomeAluno;
-    private Integer codAluno;
 
-    //Construtor
-
-    public Aluno(String nomAl, String sobAl, Integer cod) {
-        this.nomeAluno = nomAl;
-        this.sobrenomeAluno = sobAl;
-        this.codAluno = cod;
+    public Aluno(String nome, String sobrenome, Integer codigoAluno) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.codigoAluno = codigoAluno;
     }
 
-    //Getters e Setters
-
-    public String getNomeAluno() {
-        return nomeAluno;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeAluno(String nomeAluno) {
-        this.nomeAluno = nomeAluno;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getSobrenomeAluno() {
-        return sobrenomeAluno;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setSobrenomeAluno(String sobrenomeAluno) {
-        this.sobrenomeAluno = sobrenomeAluno;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
-    public Integer getCodAluno() {
-        return codAluno;
+    public Integer getCodigoAluno() {
+        return codigoAluno;
     }
 
-    public void setCodAluno(Integer codAluno) {
-        this.codAluno = codAluno;
+    public void setCodigoAluno(Integer codigoAluno) {
+        this.codigoAluno = codigoAluno;
     }
 }

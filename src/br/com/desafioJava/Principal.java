@@ -3,40 +3,34 @@ package br.com.desafioJava;
 public class Principal {
     public static void main(String[] args) {
         DigitalHouseManager dhmanager = new DigitalHouseManager();
-        System.out.println("Registrar dois professores titulares");
-        dhmanager.registrarProfessorTitular("Juliana", "Souza", 5245, "C++");
-        dhmanager.registrarProfessorTitular("Maria Tereza", "Nunes da Silva", 2101, "Javascript");
 
-        System.out.println("Registrar dois professores adjuntos");
-        dhmanager.registrarProfessorAdjunto("João Carlos", "Machado", 2155, 25);
-        dhmanager.registrarProfessorAdjunto("Darci", "Reis", 3699, 30);
+        //criando os professores no sistema
+        dhmanager.registrarProfessorTitular("Maria", "Da Cunha", 111,  "C++");
+        dhmanager.registrarProfessorTitular("Joana", "Da Silva", 112,  "HTML");
+        dhmanager.registrarProfessorAdjunto("Carla", "Santos", 113, 8);
+        dhmanager.registrarProfessorAdjunto("Silvana", "Oliveira", 114,  20);
+        //alocando professores em seus cursos
+        dhmanager.alocarProfessores(20001, 111,113);
+        dhmanager.alocarProfessores(20002, 112,114);
 
-        System.out.println("Registrar dois cursos");
-        dhmanager.registrarCurso("Front End", 123, 30);
-        dhmanager.registrarCurso("PHP", 121, 20);
+        //Registrando as alunas
+        dhmanager.gerarAluno("Mariana", "das Dores", 221);
+        dhmanager.gerarAluno("Julia", "Moreira", 222);
+        dhmanager.gerarAluno("Alana", "Pereira", 223);
+        dhmanager.gerarAluno("Diana", "Lopez", 224);
+        dhmanager.gerarAluno("Hanna", "Camargo", 225);
 
-        System.out.println("Alocar um professor titular e um adjunto");
-        dhmanager.alocarProfessores(123, 5245, 2155);
-        dhmanager.alocarProfessores(121, 5245, 2155);
-        dhmanager.alocarProfessores(123, 2101, 3699);
-        dhmanager.alocarProfessores(121, 2101, 3699);
+        //Registrando os cursos
+        dhmanager.registrarCurso("C++", 20001, 3);
+        dhmanager.registrarCurso("Front End", 20002, 2);
 
-        System.out.println("Matricular dois alunos no curso de Front End");
-        dhmanager.registrarAluno("Maria", "da Graça", 100);
-        dhmanager.matricularAluno(100, 123);
-        dhmanager.registrarAluno("Katiúscia", "Lavrov, 101");
-        dhmanager.matricularAluno(101, 123);
+        //Matriculando as alunas nos cursos
+        dhmanager.matricularAluno(221, 20001);
+        dhmanager.matricularAluno(222, 20001);
+        dhmanager.matricularAluno(223,20002);
+        dhmanager.matricularAluno(224,20002);
+        dhmanager.matricularAluno(225, 20002);
 
-        System.out.println("Matricular três alunos no curso de PHP");
-        dhmanager.registrarAluno("Jacinta", "das Dores", 103);
-        dhmanager.matricularAluno(103, 121);
-        dhmanager.registrarAluno("Maxwell", "Ferreira", 104);
-        dhmanager.matricularAluno(104, 121);
-        dhmanager.registrarAluno("Valdisnei", "Bispo", 105);
-        dhmanager.matricularAluno(105, 121);
-
-        System.out.println("Consultar Matricula de aluno");
-        dhmanager.consultarMatriculaAluno(100);
+        //dh.imprimirDados();
     }
 }
-

@@ -4,39 +4,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Curso {
-    //Atributos
+
     private String nomeCurso;
-    public Integer codCurso;
+    private Integer codigoCurso;
     private ProfessorAdjunto professorAdjunto;
     private ProfessorTitular professorTitular;
+    private List<Aluno> listaAlunos = new ArrayList();
     private Integer maximoAlunos;
-    private List<Aluno> listaAlunos = new ArrayList<>();
-    private Integer totalAlunos;
+    private int totalAlunos = 0;
 
-    public Curso(String nomeCurso, Integer codCurso, Integer maximoAlunos) {
+    public ProfessorAdjunto getProfessorAdjunto() {
+        return professorAdjunto;
+    }
+
+    public void setProfessorAdjunto(Professor professorAdjunto) {
+        this.professorAdjunto = (ProfessorAdjunto) professorAdjunto;
+    }
+
+    public ProfessorTitular getProfessorTitular() {
+        return professorTitular;
+    }
+
+    public void setProfessorTitular(Professor professorTitular) {
+        this.professorTitular = (ProfessorTitular) professorTitular;
+    }
+
+    public Curso(){}
+    public Curso(String nomeCurso, Integer codigoCurso, Integer max) {
         this.nomeCurso = nomeCurso;
-        this.codCurso = codCurso;
-        this.maximoAlunos = maximoAlunos;
+        this.codigoCurso = codigoCurso;
+        this.maximoAlunos= max;
     }
-
-    //Métodos Especiais
-
-    public Boolean adicionarUmAluno(Aluno umAluno) {
-        if (this.maximoAlunos > this.totalAlunos) {
-            listaAlunos.add(umAluno);
-            this.totalAlunos = totalAlunos + 1;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public void excluirAluno(Aluno umAluno) {
-        listaAlunos.remove(umAluno);
-        this.totalAlunos = totalAlunos - 1;
-    }
-
-    //Getters e Setters
 
     public String getNomeCurso() {
         return nomeCurso;
@@ -46,52 +44,26 @@ public class Curso {
         this.nomeCurso = nomeCurso;
     }
 
-    public Integer getCodCurso() {
-        return codCurso;
+    public Integer getCodigoCurso() {
+        return codigoCurso;
     }
 
-    public void setCodCurso(Integer codCurso) {
-        if (existeCodigoCurso(codCurso)) {
-            System.out.println("Erro! Curso já existe!");
+    public void setCodigoCurso(Integer codigoCurso) {
+        this.codigoCurso = codigoCurso;
+    }
+
+    public Boolean adicionarUmAluno(Aluno umAluno) {
+        if (totalAlunos < maximoAlunos) {
+            System.out.println("Aluno adicionado com sucesso");
+            listaAlunos.add(umAluno);
+            totalAlunos++;
+            return true;
         } else {
-            this.codCurso = codCurso;
-            System.out.println("Curso cadastrado com suceso!");
+            System.out.println("Impossível adicionar. Curso alcançou a lotação máxima!");
+            return false;
         }
-    }
-
-    public ProfessorAdjunto getProfessorAdjunto() {
-        return professorAdjunto;
-    }
-
-    private boolean existeCodigoCurso(int codCurso) {
-        return codCurso == this.codCurso;
-    }
-
-    public void setProfessorAdjunto(ProfessorAdjunto professorAdjunto) {
-        this.professorAdjunto = professorAdjunto;
-    }
-
-    public ProfessorTitular getProfessorTitular() {
-        return professorTitular;
-    }
-
-    public void setProfessorTitular(ProfessorTitular professorTitular) {
-        this.professorTitular = professorTitular;
-    }
-
-    public Integer getMaximoAlunos() {
-        return maximoAlunos;
-    }
-
-    public void setMaximoAlunos(Integer maximoAlunos) {
-        this.maximoAlunos = maximoAlunos;
-    }
-
-    public List<Aluno> getListaAlunos() {
-        return listaAlunos;
-    }
-
-    public void setListaAlunos(List<Aluno> listaAlunos) {
-        this.listaAlunos = listaAlunos;
+    } public void excluirAluno(Aluno umAluno) {
+        listaAlunos.remove(umAluno);
+        System.out.println("Aluno excluído com sucesso!");
     }
 }

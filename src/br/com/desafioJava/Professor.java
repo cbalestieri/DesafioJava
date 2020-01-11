@@ -3,19 +3,15 @@ package br.com.desafioJava;
 public class Professor {
     private String nomeProfessor;
     private String sobrenomeProfessor;
-    private int tempoDeCasa;
-    private int codProfessor;
+    private Integer codigoProfessor;
+    private Integer tempoDeCasa;
 
-    //Construtor
-
-    public Professor(String nomProf, String sobProf, int tempoCasa, int codProf) {
-        this.nomeProfessor = nomProf;
+    public Professor(String nomeProfessor, String sobrenomeProfessor, Integer codigoProfessor, Integer tempoDeCasa) {
+        this.nomeProfessor = nomeProfessor;
         this.sobrenomeProfessor = sobrenomeProfessor;
-        this.tempoDeCasa = tempoCasa;
-        this.codProfessor = codProf;
+        this.codigoProfessor = codigoProfessor;
+        this.tempoDeCasa = tempoDeCasa;
     }
-
-    //Getters e Setters
 
     public String getNomeProfessor() {
         return nomeProfessor;
@@ -33,25 +29,19 @@ public class Professor {
         this.sobrenomeProfessor = sobrenomeProfessor;
     }
 
-    public int getTempoDeCasa() {
+    public Integer getCodigoProfessor() {
+        return codigoProfessor;
+    }
+
+    public void setCodigoProfessor(Integer codigoProfessor) {
+        this.codigoProfessor = codigoProfessor;
+    }
+
+    public Integer getTempoDeCasa() {
         return tempoDeCasa;
     }
 
-    public void setTempoDeCasa(int tempoDeCasa) {
+    public void setTempoDeCasa(Integer tempoDeCasa) {
         this.tempoDeCasa = tempoDeCasa;
     }
-
-    //Verifica código de professor
-    private boolean existeCodigoProfessor(int codProfessor) {
-        return codProfessor == this.codProfessor;
-    }
-
-    public Integer getCodProfessor() {
-        return codProfessor;
-    }
-
-    public void setCodProfessor(int codProfessor) {
-        this.codProfessor = codProfessor;
-    }
 }
-
