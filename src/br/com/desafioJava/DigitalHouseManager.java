@@ -80,76 +80,78 @@ public class DigitalHouseManager {
         for (int i = 0; i < listaProfessores.size(); i++) {
             if (codProf == listaProfessores.get(i).getCodProfessor()) {
                 listaProfessores.remove(listaProfessores.get(i));
-        System.out.println("Professor excluído com sucesso!");
-    }
+                System.out.println("Professor excluído com sucesso!");
+            }
 
-    //Registrar aluno
+            //Registrar aluno
 
-    public boolean registrarAluno(String nomAl, String sobAl, Integer cod) {
-        if (verificaAluno(cod)) {
-            System.out.println("Impossível cadastrar, código já existe!");
-            return false;
-        }
-        Aluno aluno = new aluno(nomAl, sobAl, cod);
-        listaAlunos.add(Aluno);
-        System.out.println("Aluno registrado com sucesso!");
-        return true;
-    }
+            public boolean registrarAluno (String nomAl, String sobAl, Integer cod){
+                if (verificaAluno(cod)) {
+                    System.out.println("Impossível cadastrar, código já existe!");
+                    return false;
+                }
+                Aluno aluno = new aluno(nomAl, sobAl, cod);
+                listaAlunos.add(Aluno);
+                System.out.println("Aluno registrado com sucesso!");
+                return true;
+            }
 
-    //Matricular aluno em um curso
-    public void matricularAluno(Integer cod, Integer codCurso) {
-        if (!verificaCurso(codCurso)) {
-            System.out.println("Código não cadastrado, favor informar dados válidos.");
-        } else if (!verificaAluno(cod)) {
-            System.out.println("Código não cadastrado, favor informar dados válidos.");
-        }
-        for (Curso curso : listaCursos) {
-            if (curso.getCodCurso() == codCurso) {
-                for (Aluno aluno : listaAlunos) {
-                    if (aluno.getCodAluno() == cod) {
-                        if (curso.adicionarUmAluno(aluno)) {
-                            Matricula matricula = new Matricula(aluno, curso);
-                            listaMatriculas.add(matricula);
-                            System.out.println("Aluno matriculado com sucesso");
-                        } else {
-                            System.out.println("Nao foi possível realizar a matrícula");
+            //Matricular aluno em um curso
+            public void matricularAluno (Integer cod, Integer codCurso){
+                if (!verificaCurso(codCurso)) {
+                    System.out.println("Código não cadastrado, favor informar dados válidos.");
+                } else if (!verificaAluno(cod)) {
+                    System.out.println("Código não cadastrado, favor informar dados válidos.");
+                }
+                for (Curso curso : listaCursos) {
+                    if (curso.getCodCurso() == codCurso) {
+                        for (Aluno aluno : listaAlunos) {
+                            if (aluno.getCodAluno() == cod) {
+                                if (curso.adicionarUmAluno(aluno)) {
+                                    Matricula matricula = new Matricula(aluno, curso);
+                                    listaMatriculas.add(matricula);
+                                    System.out.println("Aluno matriculado com sucesso");
+                                } else {
+                                    System.out.println("Nao foi possível realizar a matrícula");
+                                }
+                            }
                         }
                     }
                 }
             }
-        }
-    }
 //Alocar Professores
 
-    public void alocarProfessores(Integer codCurso, int codProfessorTitular, int codProfessorAdjunto) {
-        if (!verificaCurso(codCurso)) {
-            System.out.println("Código não cadastrado, favor informar dados válidos.");
-        } else if (!verificaProfessor(codProfessorTitular)) {
-            System.out.println("Código não cadastrado, favor informar dados válidos.");
-        } else if (!verificaProfessor(codProfessorAdjunto)) {
-            System.out.println("Código não cadastrado, favor informar dados válidos.");
-        }
-        for (Curso curso : listaCursos) {
-            if (curso.getCodCurso() == codCurso) {
-                for (Professor professor : listaProfessores) {
-                    if (professor.getCodProfessor() == codProfessorTitular) {
-                        curso.setProfessorTitular((ProfessorTitular) professor);
-                        System.out.println("Professor Titular alocado com sucesso!");
-                    } else if (professor.getCodProfessor() == codProfessorAdjunto) {
-                        curso.setProfessorAdjunto((ProfessorAdjunto) professor);
-                        System.out.println("Professor Adjunto alocado com sucesso!");
+            public void alocarProfessores (Integer codCurso,int codProfessorTitular, int codProfessorAdjunto){
+                if (!verificaCurso(codCurso)) {
+                    System.out.println("Código não cadastrado, favor informar dados válidos.");
+                } else if (!verificaProfessor(codProfessorTitular)) {
+                    System.out.println("Código não cadastrado, favor informar dados válidos.");
+                } else if (!verificaProfessor(codProfessorAdjunto)) {
+                    System.out.println("Código não cadastrado, favor informar dados válidos.");
+                }
+                for (Curso curso : listaCursos) {
+                    if (curso.getCodCurso() == codCurso) {
+                        for (Professor professor : listaProfessores) {
+                            if (professor.getCodProfessor() == codProfessorTitular) {
+                                curso.setProfessorTitular((ProfessorTitular) professor);
+                                System.out.println("Professor Titular alocado com sucesso!");
+                            } else if (professor.getCodProfessor() == codProfessorAdjunto) {
+                                curso.setProfessorAdjunto((ProfessorAdjunto) professor);
+                                System.out.println("Professor Adjunto alocado com sucesso!");
+                            }
+                        }
                     }
                 }
             }
-        }
-    }
 
-    public void consultarMatriculaAluno(Integer cod) {
-        if (!verificaAluno(cod)) {
-            System.out.println("Dados inválidos!");
-            for (Matricula matricula : listaMatriculas) {
-                if (matricula.getAluno().getCodAluno() == cod) {
-                    System.out.println("O(a) aluno(a) consultado(a) está matriculado(a) no curso " + matricula.getCurso().getNomeCurso());
+            public void consultarMatriculaAluno (Integer cod){
+                if (!verificaAluno(cod)) {
+                    System.out.println("Dados inválidos!");
+                    for (Matricula matricula : listaMatriculas) {
+                        if (matricula.getAluno().getCodAluno() == cod) {
+                            System.out.println("O(a) aluno(a) consultado(a) está matriculado(a) no curso " + matricula.getCurso().getNomeCurso());
+                        }
+                    }
                 }
             }
         }
