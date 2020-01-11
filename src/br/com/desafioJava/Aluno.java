@@ -5,7 +5,7 @@ public class Aluno {
     //Atributos
     private String nomeAluno;
     private String sobrenomeAluno;
-    public Integer codAluno;
+    private Integer codAluno;
 
     //Construtor
 

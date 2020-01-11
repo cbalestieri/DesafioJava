@@ -6,18 +6,17 @@ public class Professor {
     private int tempoDeCasa;
     private int codProfessor;
 
-    public Professor(String noProf, String sobProf, int tempoDeCasa, int codProf) {
-        this.nomeProfessor = noProf;
-        this.sobrenomeProfessor = sobProf;
-        this.tempoDeCasa = tempoDeCasa;
+    //Construtor
+
+    public Professor(String nomProf, String sobProf, int tempoCasa, int codProf) {
+        this.nomeProfessor = nomProf;
+        this.sobrenomeProfessor = sobrenomeProfessor;
+        this.tempoDeCasa = tempoCasa;
         this.codProfessor = codProf;
     }
 
-    public Professor() {
-
-    }
-
     //Getters e Setters
+
     public String getNomeProfessor() {
         return nomeProfessor;
     }
@@ -47,17 +46,12 @@ public class Professor {
         return codProfessor == this.codProfessor;
     }
 
-    public int getCodProfessor() {
+    public Integer getCodProfessor() {
         return codProfessor;
     }
 
-    public String setCodProfessor(int codProfessor) {
-        if (existeCodigoProfessor(codProfessor)) {
-
-        } else {
-            this.codProfessor = codProfessor;
-        }
-        return null;
+    public void setCodProfessor(int codProfessor) {
+        this.codProfessor = codProfessor;
     }
 }
 

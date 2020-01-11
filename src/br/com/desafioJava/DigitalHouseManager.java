@@ -44,7 +44,7 @@ public class DigitalHouseManager {
     //Inicia Menu
 
     //Registrar curso
-    public void registrarCurso(String nomeCurso, int codCurso, int maximoAlunos) {
+    public void registrarCurso(String nomeCurso, Integer codCurso, Integer maximoAlunos) {
         Curso curso = new Curso(nomeCurso, codCurso, maximoAlunos);
         listaCursos.add(curso);
         System.out.println("Curso registrado com sucesso!");
@@ -52,9 +52,12 @@ public class DigitalHouseManager {
 
     //Excluir curso
     public void excluirCurso(Integer codCurso) {
-
-        listaCursos.remove(codCurso);
-        System.out.println("Curso excluido com sucesso!");
+        for (int i = 0; i < listaCursos.size(); i++) {
+            if (codCurso == listaCursos.get(i).getCodCurso()) {
+                listaCursos.remove(listaCursos.get(i));
+                System.out.println("Curso excluido com sucesso!");
+            }
+        }
     }
 
     //Registrar professor adjunto
@@ -67,14 +70,16 @@ public class DigitalHouseManager {
 
     //Registrar Professor Titular
     public void registrarProfessorTitular(String noProf, String sobProf, Integer codProf, String especialidade) {
-        ProfessorTitular professorTitular = new ProfessorTitular(noProf, sobProf, codProf, especialidade);
+        ProfessorTitular professorTitular = new ProfessorTitular(noProf, sobProf, codProf, 0, especialidade);
         listaProfessores.add(ProfessorTitular);
         System.out.println("Professor Titular registrado com sucesso!");
     }
 
     //Excluir professor
     public void excluirProfessor(Integer codProf) {
-        listaProfessores.remove(Professor);
+        for (int i = 0; i < listaProfessores.size(); i++) {
+            if (codProf == listaProfessores.get(i).getCodProfessor()) {
+                listaProfessores.remove(listaProfessores.get(i));
         System.out.println("Professor excluído com sucesso!");
     }
 
