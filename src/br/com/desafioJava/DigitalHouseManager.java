@@ -101,5 +101,4 @@ public class DigitalHouseManager {
         System.out.println(listaCursos);
         System.out.println(listaAlunos);
     }
-
 }
