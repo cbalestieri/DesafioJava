@@ -9,8 +9,8 @@ public class DigitalHouseManager {
     private List<Curso> listaCursos = new ArrayList<>();
     private List<Matricula> listaMatriculas= new ArrayList<>();
 
-    public void registrarCurso(String nome, Integer codigoCurso, Integer quantidadeMaximaDeAlunos) {
-        Curso curso = new Curso(nome, codigoCurso, quantidadeMaximaDeAlunos);
+    public void registrarCurso(String nome, Integer codigoCurso, Integer maximoAlunos) {
+        Curso curso = new Curso(nome, codigoCurso, maximoAlunos);
         listaCursos.add(curso);
         System.out.println("Curso criado com sucesso!");
     }
@@ -24,16 +24,16 @@ public class DigitalHouseManager {
         }
     }
 
-    public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer quantidadeDeHoras) {
-        ProfessorAdjunto professorAdjunto = new ProfessorAdjunto(nome, sobrenome, codigoProfessor, 0, quantidadeDeHoras);
+    public void registrarProfessorAdjunto(String nome, String sobrenome, Integer codigoProfessor, Integer horasMonitoria) {
+        ProfessorAdjunto professorAdjunto = new ProfessorAdjunto(nome, sobrenome, codigoProfessor, 0, horasMonitoria);
         listaProfessores.add(professorAdjunto);
-        System.out.println("Professor adicionado com sucesso!");
+        System.out.println("Professor registrado com sucesso!");
     }
 
     public void registrarProfessorTitular(String nome, String sobrenome, Integer codigoProfessor, String especialidade) {
         ProfessorTitular professorTitular = new ProfessorTitular(nome, sobrenome, codigoProfessor, 0, especialidade);
         listaProfessores.add(professorTitular);
-        System.out.println("Professor adicionado com sucesso!");
+        System.out.println("Professor registrado com sucesso!");
     }
 
     public void excluirProfessor(Integer codigoProfessor) {
@@ -69,10 +69,10 @@ public class DigitalHouseManager {
             }
         }
         if (k== 0) {
-            System.out.println("Não há este curso!");
+            System.out.println("O curso não existe!");
         }
         if (k== 1 && x== 0) {
-            System.out.println("Aluno ainda não foi gerado, favor matriculá-lo no sistema!");
+            System.out.println("Aluno não registrado!");
         }
     }
 
@@ -82,15 +82,15 @@ public class DigitalHouseManager {
                 for (int i1 = 0; i1 < listaProfessores.size(); i1++) {
                     if (listaProfessores.get(i1).getCodigoProfessor() == codigoProfessorAdjunto) {
                         listaCursos.get(i).setProfessorAdjunto(listaProfessores.get(i1));
-                        System.out.println("Professor Adjunto alocado com sucesso! :D");
+                        System.out.println("Professor Adjunto alocado com sucesso!");
                     }
                     if (listaProfessores.get(i1).getCodigoProfessor() == codigoProfessorTitular) {
                         listaCursos.get(i).setProfessorTitular(listaProfessores.get(i1));
-                        System.out.println("Professor Titular alocado com sucesso! :D");
+                        System.out.println("Professor Titular alocado com sucesso!");
                     }
                 }
             } else {
-                System.out.println("O curso não existe! :(");
+                System.out.println("O curso não existe!");
             }
         }
     }
