@@ -45,7 +45,7 @@ public class DigitalHouseManager {
         }
     }
 
-    public void gerarAluno(String nome, String sobrenome, Integer codigoAluno) {
+    public void registrarAluno(String nome, String sobrenome, Integer codigoAluno) {
         Aluno aluno = new Aluno(nome, sobrenome, codigoAluno);
         listaAlunos.add(aluno);
     }
